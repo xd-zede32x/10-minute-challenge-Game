@@ -2,24 +2,25 @@ using InputMove;
 using TMPro;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+namespace AddScore
 {
-    [SerializeField] private int _score;
-    [SerializeField] private InputKnifeMove _inputKnifeMove;
-
-    private TextMeshProUGUI _textScore;
-
-    private void Start() => _textScore = GetComponent<TextMeshProUGUI>();
-    private void Update() => _textScore.text = _score.ToString();
-
-    public void AddScore() => _score++;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class Score : MonoBehaviour
     {
-        if (_inputKnifeMove.IsMoving)
+        [SerializeField] private int _score;
+        [SerializeField] private InputKnifeMove _inputKnifeMove;
+        [SerializeField] private TextMeshProUGUI _scoreText;
+
+        private void Update() => _scoreText.text = _score.ToString();
+
+        public void AddScore() => _score++;
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            Destroy(collision.gameObject);
-            AddScore();
+            if (_inputKnifeMove.IsMoving)
+            {
+                Destroy(collision.gameObject);
+                AddScore();
+            }
         }
     }
 }

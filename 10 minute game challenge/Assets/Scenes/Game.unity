@@ -379,7 +379,6 @@ GameObject:
   - component: {fileID: 723318503}
   - component: {fileID: 723318505}
   - component: {fileID: 723318504}
-  - component: {fileID: 723318506}
   m_Layer: 0
   m_Name: ScoreText
   m_TagString: Untagged
@@ -505,20 +504,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723318502}
   m_CullTransparentMesh: 1
---- !u!114 &723318506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723318502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0dd06456830e044a77eca157d11706, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _score: 0
-  _inputKnifeMove: {fileID: 2041773640}
 --- !u!1 &808884805
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,17 +711,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 506360217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2041773640 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4146044074793556873, guid: 6b99fd2a399797f4fa31d669504a0312, type: 3}
-  m_PrefabInstance: {fileID: 3724748065145668932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0210d602c143b0408c9bc6e71b3e392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3724748065145668932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -785,14 +759,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
-    - target: {fileID: 1313350663864878629, guid: 6b99fd2a399797f4fa31d669504a0312, type: 3}
-      propertyPath: _inputKnifeMove
+    - target: {fileID: 4943905581838142598, guid: 6b99fd2a399797f4fa31d669504a0312, type: 3}
+      propertyPath: _scoreText
       value: 
-      objectReference: {fileID: 2041773640}
-    - target: {fileID: 4146044074793556873, guid: 6b99fd2a399797f4fa31d669504a0312, type: 3}
-      propertyPath: _score
-      value: 
-      objectReference: {fileID: 723318506}
+      objectReference: {fileID: 723318504}
     - target: {fileID: 6096811549179716279, guid: 6b99fd2a399797f4fa31d669504a0312, type: 3}
       propertyPath: m_Name
       value: Knife
