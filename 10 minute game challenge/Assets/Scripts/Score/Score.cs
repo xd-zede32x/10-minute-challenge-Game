@@ -1,3 +1,4 @@
+using InputMove;
 using TMPro;
 using UnityEngine;
 
@@ -11,10 +12,14 @@ public class Score : MonoBehaviour
     private void Start() => _textScore = GetComponent<TextMeshProUGUI>();
     private void Update() => _textScore.text = _score.ToString();
 
-    public void AddScore(Collider2D other)
+    public void AddScore() => _score++;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(other.gameObject);
-        _inputKnifeMove.IsMoving = false;
-        _score++;
+        if (_inputKnifeMove.IsMoving)
+        {
+            Destroy(collision.gameObject);
+            AddScore();
+        }
     }
 }

@@ -785,6 +785,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 1313350663864878629, guid: 6b99fd2a399797f4fa31d669504a0312, type: 3}
+      propertyPath: _inputKnifeMove
+      value: 
+      objectReference: {fileID: 2041773640}
     - target: {fileID: 4146044074793556873, guid: 6b99fd2a399797f4fa31d669504a0312, type: 3}
       propertyPath: _score
       value: 

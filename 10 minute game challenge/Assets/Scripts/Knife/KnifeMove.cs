@@ -1,23 +1,27 @@
-﻿using UnityEngine;
+﻿using InputMove;
+using UnityEngine;
 
-public class KnifeMove : MonoBehaviour
+namespace Move
 {
-    private const float SinMultiplier = 3f;
-    private const float AmplitudeOscillations = 4f;
-
-    [SerializeField] private float _speed;
-    [SerializeField] private InputKnifeMove _inputKnifeMove;
-
-    private float _startPositionX;
-
-    private void Start() => _startPositionX = transform.position.x;
-
-    public void Move()
+    public class KnifeMove : MonoBehaviour
     {
-        if (_inputKnifeMove.IsMoving)
-            transform.Translate(Time.deltaTime * _speed, 0f, 0f, Space.World);
+        private const float SinMultiplier = 3f;
+        private const float AmplitudeOscillations = 4f;
 
-        else
-            transform.position = new Vector2(_startPositionX, Mathf.Sin(Time.time * SinMultiplier) * AmplitudeOscillations);
+        [SerializeField] private float _speed;
+        [SerializeField] private InputKnifeMove _inputKnifeMove;
+
+        private float _startPositionX;
+
+        private void Start() => _startPositionX = transform.position.x;
+
+        public void Update()
+        {
+            if (_inputKnifeMove.IsMoving)
+                transform.Translate(Time.deltaTime * _speed, 0f, 0f, Space.World);
+
+            else
+                transform.position = new Vector2(_startPositionX, Mathf.Sin(Time.time * SinMultiplier) * AmplitudeOscillations);
+        }
     }
 }
