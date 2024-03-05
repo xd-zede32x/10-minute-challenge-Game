@@ -1,11 +1,22 @@
-using MainTarget;
 using UnityEngine;
+using System.Collections;
 
 public class TargetSpawner : MonoBehaviour
 {
-    [SerializeField] private Target _target;
+    [SerializeField] private GameObject _target;
+    [SerializeField] private float _initialDelay;
+    [SerializeField] private float _repeatRate;
 
-    private void Start() => InvokeRepeating(nameof(SpawnTarget), 2f, 1f);
+    private void Start() => StartCoroutine(SpawnTargetRepeatedly());
 
-    private void SpawnTarget() => Instantiate(_target);
+    private IEnumerator SpawnTargetRepeatedly()
+    {
+        yield return new WaitForSeconds(_initialDelay);
+
+        while (true)
+        {
+            Instantiate(_target, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(_repeatRate);
+        }
+    }
 }

@@ -5,28 +5,28 @@ namespace MainTarget
 {
     public class Target : MonoBehaviour
     {
-        [SerializeField] private float MaxSpeed = 5f;
-        [SerializeField] private float MinSpeed = 3f;
-        [SerializeField] private float _position = 3.7f;
-        [SerializeField] private float InitialPositionX = 12f;
-        [SerializeField] private float LeftBoundary = -6f;
+        [SerializeField] private float _maxSpeed;
+        [SerializeField] private float _minSpeed;
+        [SerializeField] private float _position;
+        [SerializeField] private float _leftBoundary;
+        [SerializeField] private float _initialPositionX;
 
         private float _targetSpeed;
 
         private void Start() => SetKnifeRandomPositionAndSpeed();
-        private void Update() => TargetMove();
+        private void Update() => MoveTarget();
 
         private void SetKnifeRandomPositionAndSpeed()
         {
-            transform.position = new Vector2(InitialPositionX, Random.Range(-_position, _position));
-            _targetSpeed = Random.Range(MinSpeed, MaxSpeed);
+            transform.position = new Vector2(_initialPositionX, Random.Range(-_position, _position));
+            _targetSpeed = Random.Range(_minSpeed, _maxSpeed);
         }
 
-        private void TargetMove()
+        private void MoveTarget()
         {
             transform.Translate(-_targetSpeed * Time.deltaTime, 0f, 0f);
 
-            if (transform.localPosition.x < LeftBoundary)
+            if (transform.localPosition.x < _leftBoundary)
                 RestartGame();
         }
 

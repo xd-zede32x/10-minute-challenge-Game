@@ -15,13 +15,24 @@ namespace Move
 
         private void Start() => _startPositionX = transform.position.x;
 
-        public void Update()
+        private void Update()
         {
-            if (_inputKnifeMove.IsMoving)
-                transform.Translate(Time.deltaTime * _speed, 0f, 0f, Space.World);
+            if (_inputKnifeMove != null && _inputKnifeMove.IsMoving)
+                MoveInMovingState();
 
             else
-                transform.position = new Vector2(_startPositionX, Mathf.Sin(Time.time * SinMultiplier) * AmplitudeOscillations);
+                OscillateInRestState();
+        }
+
+        private void MoveInMovingState()
+        {
+            transform.Translate(Vector3.right * _speed * Time.deltaTime, Space.World);
+        }
+
+        private void OscillateInRestState()
+        {
+            float oscillationValue = Mathf.Sin(Time.time * SinMultiplier) * AmplitudeOscillations;
+            transform.position = new Vector2(_startPositionX, oscillationValue);
         }
     }
 }

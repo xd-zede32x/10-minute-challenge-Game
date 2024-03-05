@@ -1,5 +1,4 @@
-﻿using Move;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace InputMove
 {
@@ -11,7 +10,7 @@ namespace InputMove
 
         private void Update() => InputMove();
 
-        public void InputMove()
+        private void InputMove()
         {
             if (Input.GetMouseButtonDown(0))
                 _isMoving = true;

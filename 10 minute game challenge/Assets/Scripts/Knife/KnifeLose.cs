@@ -8,13 +8,13 @@ public class KnifeLose : MonoBehaviour
 
     private const float RightBoundary = 5.0f;
 
-    private void Update()
+    private void Update() => RestartGame();
+
+    private void RestartGame()
     {
         if (transform.position.x > RightBoundary)
-            RestartGame();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
